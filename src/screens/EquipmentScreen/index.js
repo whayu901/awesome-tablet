@@ -20,7 +20,9 @@ const EquipmentScreen = () => {
 
   return (
     <View>
-      <EquipmentSelector />
+      <View style={{marginHorizontal: 12}}>
+        <EquipmentSelector />
+      </View>
 
       <View style={styles.containerPI}>
         <ButtonComponent title={'PI Analysis'} miniButton />
@@ -44,7 +46,7 @@ const EquipmentScreen = () => {
 const styles = StyleSheet.create({
   containerPI: {
     marginTop: 18,
-    marginLeft: 15,
+    marginLeft: 12,
   },
 
   buttonContainer: {

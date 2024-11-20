@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Vibration} from 'react-native';
 import {
   useCameraDevice,
@@ -10,10 +10,16 @@ export const useQRCode = () => {
   const device = useCameraDevice('back');
   const {hasPermission, requestPermission} = useCameraPermission();
 
+  const [isActive, setIsActive] = useState(true);
+
   React.useEffect(() => {
     if (!hasPermission) {
       requestPermission();
     }
+
+    return () => {
+      setIsActive(false);
+    };
   }, [hasPermission, requestPermission]);
 
   const codeScanner = useCodeScanner({
@@ -28,5 +34,7 @@ export const useQRCode = () => {
   return {
     device,
     codeScanner,
+    isActive,
+    setIsActive,
   };
 };

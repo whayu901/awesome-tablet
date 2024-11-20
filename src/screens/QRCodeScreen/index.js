@@ -7,13 +7,13 @@ import {useNavigation} from '@react-navigation/native';
 import ButtonComponent from '../../components/Button';
 
 const QRCodeScreen = () => {
-  const {codeScanner, device} = useQRCode();
+  const {codeScanner, device, isActive, setIsActive} = useQRCode();
   const navigation = useNavigation();
 
   return (
     <View style={{flex: 1}}>
       <Camera
-        isActive
+        isActive={isActive}
         device={device}
         codeScanner={codeScanner}
         style={{flex: 1}}
@@ -26,7 +26,10 @@ const QRCodeScreen = () => {
       <View style={styles.buttonContainer}>
         <ButtonComponent
           title={'Cancel'}
-          onPress={() => navigation.navigate('Equipment')}
+          onPress={() => {
+            setIsActive(false);
+            navigation.navigate('Equipment');
+          }}
         />
       </View>
     </View>

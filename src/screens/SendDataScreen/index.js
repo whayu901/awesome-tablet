@@ -16,13 +16,14 @@ import TextField from '../../components/TextField';
 import ButtonComponent from '../../components/Button';
 import DatePicker from 'react-native-date-picker';
 import moment from 'moment';
+import PickFiles from '../../components/PickFiles';
 
 const SendDataScreen = () => {
   const {priorityValue, setPriorityValue, date, setDate, open, setOpen} =
     useSendData();
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, marginLeft: 12, marginRight: 12}}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <EquipmentSelector isHideCritical={true} />
 
@@ -46,6 +47,7 @@ const SendDataScreen = () => {
           <TextField
             label={'Description'}
             placeholder={'Hear some abnormal noise'}
+            isMultiline
           />
         </View>
 
@@ -73,6 +75,10 @@ const SendDataScreen = () => {
             />
           </View>
         </View>
+
+        <View>
+          <PickFiles />
+        </View>
       </ScrollView>
 
       <View
@@ -94,8 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginLeft: 12,
-    marginRight: 12,
     marginVertical: 18,
   },
   dropdown: {

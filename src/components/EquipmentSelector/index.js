@@ -46,8 +46,7 @@ const EquipmentSelector = ({isHideCritical = false}) => {
 const styles = StyleSheet.create({
   equipmentContainer: {
     flexDirection: 'row',
-    marginLeft: 12,
-    marginRight: 12,
+
     alignItems: 'center',
   },
   textInput: {
