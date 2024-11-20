@@ -27,9 +27,8 @@ const EquipmentScreen = () => {
       <View style={styles.containerPI}>
         <ButtonComponent title={'PI Analysis'} miniButton />
       </View>
-      <View>
-        <DefectFindingsTable />
-      </View>
+
+      <DefectFindingsTable />
 
       <View style={styles.buttonContainer}>
         <ButtonComponent

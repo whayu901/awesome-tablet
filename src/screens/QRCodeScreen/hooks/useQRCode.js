@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Vibration} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   useCameraDevice,
   useCameraPermission,
@@ -9,6 +9,7 @@ import {
 export const useQRCode = () => {
   const device = useCameraDevice('back');
   const {hasPermission, requestPermission} = useCameraPermission();
+  const navigation = useNavigation();
 
   const [isActive, setIsActive] = useState(true);
 
@@ -25,9 +26,11 @@ export const useQRCode = () => {
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: codes => {
-      Vibration.vibrate();
+      // Vibration.vibrate();
 
-      console.log(codes[0]?.value);
+      if (codes) {
+        navigation.navigate('Equipment');
+      }
     },
   });
 

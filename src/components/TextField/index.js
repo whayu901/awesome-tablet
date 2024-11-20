@@ -15,7 +15,7 @@ const TextField = ({
           <View>
             <Text style={styles.label}>{label}</Text>
           </View>
-          <View style={{flex: 0.7}}>
+          <View style={{width: '61%'}}>
             <TextInput
               multiline={isMultiline}
               textAlignVertical="top"

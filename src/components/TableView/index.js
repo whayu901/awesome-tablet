@@ -46,7 +46,10 @@ const data = [
 
 export default function DefectFindingsTable() {
   return (
-    <ScrollView horizontal={true} style={styles.container}>
+    <ScrollView scrollEnabled={false} style={styles.container}>
+      <View style={styles.labelDefectFindingsContainer}>
+        <Text style={styles.labelDefectFindings}>Defect Findings History</Text>
+      </View>
       <View>
         {/* Header */}
         <View style={styles.headerRow}>
@@ -80,9 +83,16 @@ export default function DefectFindingsTable() {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     padding: 10,
-    // backgroundColor: '#f8f9fa',
+  },
+  labelDefectFindings: {
+    fontSize: 18,
+    color: 'white',
+    textAlign: 'center',
+  },
+  labelDefectFindingsContainer: {
+    backgroundColor: 'black',
+    paddingVertical: 10,
   },
   headerRow: {
     flexDirection: 'row',

@@ -2,13 +2,22 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {useQRCode} from './hooks/useQRCode';
 import {Camera} from 'react-native-vision-camera';
-import {useNavigation} from '@react-navigation/native';
+import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import ButtonComponent from '../../components/Button';
 
 const QRCodeScreen = () => {
   const {codeScanner, device, isActive, setIsActive} = useQRCode();
   const navigation = useNavigation();
+
+  const onGobackToHome = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{name: 'Home'}],
+      }),
+    );
+  };
 
   return (
     <View style={{flex: 1}}>
@@ -28,7 +37,7 @@ const QRCodeScreen = () => {
           title={'Cancel'}
           onPress={() => {
             setIsActive(false);
-            navigation.navigate('Equipment');
+            onGobackToHome();
           }}
         />
       </View>
@@ -55,7 +64,7 @@ const styles = StyleSheet.create({
   },
   marker: {
     width: '60%',
-    height: '40%',
+    height: '60%',
     borderWidth: 4,
     borderColor: 'green',
     borderRadius: 15,

@@ -5,7 +5,9 @@ const ButtonComponent = ({title, onPress, disabled, miniButton}) => {
   return (
     <View style={[styles.container, {width: miniButton ? '45%' : '100%'}]}>
       <TouchableOpacity onPress={onPress} disabled={disabled}>
-        <Text style={{color: 'white', textAlign: 'center'}}>{title}</Text>
+        <Text style={{color: 'white', textAlign: 'center', fontSize: 16}}>
+          {title}
+        </Text>
       </TouchableOpacity>
     </View>
   );

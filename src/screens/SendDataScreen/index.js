@@ -19,8 +19,15 @@ import moment from 'moment';
 import PickFiles from '../../components/PickFiles';
 
 const SendDataScreen = () => {
-  const {priorityValue, setPriorityValue, date, setDate, open, setOpen} =
-    useSendData();
+  const {
+    priorityValue,
+    setPriorityValue,
+    date,
+    setDate,
+    open,
+    setOpen,
+    onGobackToHome,
+  } = useSendData();
 
   return (
     <View style={{flex: 1, marginLeft: 12, marginRight: 12}}>
@@ -30,7 +37,7 @@ const SendDataScreen = () => {
         <View style={styles.containerPriority}>
           <Text style={styles.labelPriority}>Priority</Text>
 
-          <View style={{flex: 1.25}}>
+          <View style={{width: '61%'}}>
             <Dropdown
               data={PriorityList}
               labelField="label"
@@ -54,7 +61,7 @@ const SendDataScreen = () => {
         <View style={styles.containerPriority}>
           <Text>Malfunction Start</Text>
 
-          <View style={{flex: 0.82}}>
+          <View style={{width: '61%'}}>
             <TouchableOpacity
               onPress={() => setOpen(true)}
               style={styles.datePicker}>
@@ -89,7 +96,7 @@ const SendDataScreen = () => {
         }}>
         <ButtonComponent title={'Submit'} miniButton />
 
-        <ButtonComponent title={'Cancel'} miniButton />
+        <ButtonComponent title={'Cancel'} miniButton onPress={onGobackToHome} />
       </View>
     </View>
   );
