@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
 import ButtonComponent from '../../components/Button';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{flex: 1}}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
@@ -24,7 +28,11 @@ const HomeScreen = () => {
         }}>
         <ButtonComponent title={'Download'} miniButton />
 
-        <ButtonComponent title={'QR Scan'} miniButton />
+        <ButtonComponent
+          title={'QR Scan'}
+          miniButton
+          onPress={() => navigation.navigate('QRCode')}
+        />
       </View>
     </View>
   );

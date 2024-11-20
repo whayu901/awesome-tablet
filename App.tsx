@@ -1,9 +1,11 @@
 import React from 'react';
+import {enableScreens} from 'react-native-screens';
 import MainNavigator from './src/routes';
-import HomeScreen from './src/screens/HomeScreen';
+
+enableScreens(false);
 
 const App = () => {
-  return <HomeScreen />;
+  return <MainNavigator />;
 };
 
 export default App;
