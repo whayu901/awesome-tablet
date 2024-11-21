@@ -96,7 +96,11 @@ const SendDataScreen = () => {
         }}>
         <ButtonComponent title={'Submit'} miniButton />
 
-        <ButtonComponent title={'Cancel'} miniButton onPress={onGobackToHome} />
+        <ButtonComponent
+          title={'Cancel'}
+          miniButton
+          onPress={() => onGobackToHome()}
+        />
       </View>
     </View>
   );

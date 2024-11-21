@@ -26,10 +26,9 @@ export const useQRCode = () => {
   const codeScanner = useCodeScanner({
     codeTypes: ['qr', 'ean-13'],
     onCodeScanned: codes => {
-      // Vibration.vibrate();
-
       if (codes) {
         navigation.navigate('Equipment');
+        setIsActive(false);
       }
     },
   });
