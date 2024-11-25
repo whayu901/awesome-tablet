@@ -5752,6 +5752,11 @@ react-native-codegen@^0.71.3:
     jscodeshift "^0.14.0"
     nullthrows "^1.1.1"
 
+react-native-compressor@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-compressor/-/react-native-compressor-1.9.0.tgz#3b5aabac97f996036990f41294383a34510aaf22"
+  integrity sha512-kJgRBTrvI8/yOJs8GhXfc1bZui/Wl3FNKOkc3K5+EIgihzU/vS+UTLkojGcYwoYXxj4xP7GFwp0SJLsNOOJZNw==
+
 react-native-create-thumbnail@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-create-thumbnail/-/react-native-create-thumbnail-2.0.0.tgz#4eae9b4198cd484a1420608b53ce5872209b9a25"

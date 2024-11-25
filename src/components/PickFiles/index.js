@@ -14,13 +14,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {launchCamera} from 'react-native-image-picker';
 import {createThumbnail} from 'react-native-create-thumbnail';
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Import icon
+import {Video} from 'react-native-compressor';
 
 import ButtonComponent from '../Button';
 
 const PickFiles = () => {
   const [showModalChooseType, setShowModalChooseType] = useState(false);
+  const [showModalCompress, setModalCompress] = useState(false);
 
   const [mediaList, setMediaList] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   const handleMediaCapture = async type => {
     const options = {
@@ -38,6 +41,24 @@ const PickFiles = () => {
       }
 
       const {uri, type: fileType} = response.assets[0];
+      let newUri = null;
+      if (type === 'video') {
+        setModalCompress(true);
+        setProgress(0);
+        newUri = await await Video.compress(
+          uri,
+          {
+            progressDivider: 10,
+          },
+          progressValue => {
+            setProgress(Math.round(progressValue * 100));
+          },
+        );
+      }
+      setModalCompress(false);
+      setProgress(0);
+
+      console.log({newUri});
       const newMedia = {uri, type: fileType};
 
       if (type === 'video') {
@@ -123,6 +144,18 @@ const PickFiles = () => {
         />
       </View>
 
+      {/* Modal Compress video */}
+      <Modal visible={showModalCompress} transparent>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <View style={styles.containerProgress}>
+              <Text>Compress Video</Text>
+              <Text style={styles.labelProgress}>{` ${progress} %`}</Text>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       {/* Modal Choose Type File */}
       <Modal
         visible={showModalChooseType}
@@ -161,6 +194,12 @@ const PickFiles = () => {
 };
 
 const styles = StyleSheet.create({
+  containerProgress: {
+    flexDirection: 'row',
+  },
+  labelProgress: {
+    fontWeight: 'bold',
+  },
   deleteIcon: {
     position: 'absolute',
     left: '65%',
@@ -220,6 +259,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
+
     elevation: 5,
   },
 });
