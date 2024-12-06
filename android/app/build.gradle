@@ -1,6 +1,13 @@
+project.ext.envConfigFiles = [
+    staging:".env.staging",
+    production: ".env.production",
+   
+]
+
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -93,6 +100,18 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "default"
+
+     productFlavors {
+        staging {
+            applicationIdSuffix ".staging"
+            resValue "string", "build_config_package", "com.mt"
+        }
+        production {
+            applicationIdSuffix ".production"
+            resValue "string", "build_config_package", "com.mt"
+        }
+    }
 
     namespace "com.awesomehoc"
     defaultConfig {
@@ -150,6 +169,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -167,5 +187,6 @@ dependencies {
         implementation jscFlavor
     }
 }
+
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
