@@ -105,11 +105,11 @@ android {
      productFlavors {
         staging {
             applicationIdSuffix ".staging"
-            resValue "string", "build_config_package", "com.mt"
+            resValue "string", "build_config_package", "com.awesomehoc"
         }
         production {
             applicationIdSuffix ".production"
-            resValue "string", "build_config_package", "com.mt"
+            resValue "string", "build_config_package", "com.awesomehoc"
         }
     }
 

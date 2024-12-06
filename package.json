@@ -8,8 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android:stage": "yarn run android --variant=staging --appIdSuffix=staging",
-    "android:prod": "yarn run android --variant=production --appIdSuffix=production"
+    "android:staging:gradle": "npx react-native start && cd android && ./gradlew installStagingDebug && cd ..",
+    "android:prod": "npx react-native start && cd android && ./gradlew installProductionDebug && cd .."
   },
   "dependencies": {
     "@react-navigation/native": "6.1.9",
