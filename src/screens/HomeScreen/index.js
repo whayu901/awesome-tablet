@@ -16,7 +16,7 @@ const HomeScreen = () => {
             alignSelf: 'center',
             marginTop: 20,
           }}>
-          <Text>AHM Mobile</Text>
+          <Text>AHM wahyu</Text>
         </View>
       </ScrollView>
 

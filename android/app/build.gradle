@@ -1,6 +1,7 @@
 project.ext.envConfigFiles = [
     staging:".env.staging",
     production: ".env.production",
+    development: '.env.development'
    
 ]
 
@@ -103,12 +104,16 @@ android {
     flavorDimensions "default"
 
      productFlavors {
+        development {
+            applicationIdSuffix "awesomehoc.development"
+            resValue "string", "build_config_package", "com.awesomehoc"
+        }
         staging {
-            applicationIdSuffix ".staging"
+            applicationIdSuffix "awesomehoc.staging"
             resValue "string", "build_config_package", "com.awesomehoc"
         }
         production {
-            applicationIdSuffix ".production"
+            applicationIdSuffix "awesomehoc.production"
             resValue "string", "build_config_package", "com.awesomehoc"
         }
     }
@@ -141,6 +146,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            matchingFallbacks = ['debug', 'release']
         }
         release {
             // Caution! In production, you need to generate your own keystore file.

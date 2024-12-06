@@ -8,8 +8,12 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android:staging:gradle": "npx react-native start && cd android && ./gradlew installStagingDebug && cd ..",
-    "android:prod": "npx react-native start && cd android && ./gradlew installProductionDebug && cd .."
+    "android:staging": "react-native run-android --mode=stagingdebug --appId awesomehoc.staging",
+    "android:staging-release": "react-native run-android --mode=stagingrelease --appId awesomehoc.staging",
+    "android:dev": "react-native run-android --mode=developmentdebug --appId awesomehoc.development",
+    "android:dev-release": "react-native run-android --mode=developmentrelease --appId awesomehoc.development",
+    "android:prod": "react-native run-android --mode=productiondebug --appId awesomehoc.production",
+    "android:prod-release": "react-native run-android --mode=productionrelease --appId awesomehoc.production"
   },
   "dependencies": {
     "@react-navigation/native": "6.1.9",
