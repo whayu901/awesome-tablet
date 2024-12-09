@@ -8,12 +8,17 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android:staging": "react-native run-android --mode=stagingdebug --appId awesomehoc.staging",
-    "android:staging-release": "react-native run-android --mode=stagingrelease --appId awesomehoc.staging",
-    "android:dev": "react-native run-android --mode=developmentdebug --appId awesomehoc.development",
-    "android:dev-release": "react-native run-android --mode=developmentrelease --appId awesomehoc.development",
-    "android:prod": "react-native run-android --mode=productiondebug --appId awesomehoc.production",
-    "android:prod-release": "react-native run-android --mode=productionrelease --appId awesomehoc.production"
+    "android:debug:development": "cross-env ENVFILE=.env.development react-native run-android --variant=DevelopmentDebug  --appIdSuffix=development",
+    "android:debug:staging": "cross-env ENVFILE=.env.staging react-native run-android --variant=StagingDebug  --appIdSuffix=staging",
+    "android:debug:production": "cross-env ENVFILE=.env.production react-native run-android --variant=ProductionDebug",
+    "android:release:development": "cross-env ENVFILE=.env.development react-native run-android --variant=DevelopmentRelease --appIdSuffix=development",
+    "android:release:staging": "cross-env ENVFILE=.env.staging react-native run-android --variant=StagingRelease --appIdSuffix=staging",
+    "android:release:production": "cross-env ENVFILE=.env.production react-native run-android --variant=ProductionRelease",
+    "android:clean": "./android/gradlew -p ./android clean",
+    "build:apk:development": "cross-env ENVFILE=.env.development ./android/gradlew -p ./android assembleDevelopment",
+    "build:apk:staging": "cross-env ENVFILE=.env.staging ./android/gradlew -p ./android assembleStaging",
+    "build:apk:production": "cross-env ENVFILE=.env.production ./android/gradlew -p ./android assembleProduction",
+    "build:aab": "./android/gradlew -p ./android bundleProductionRelease"
   },
   "dependencies": {
     "@react-navigation/native": "6.1.9",
