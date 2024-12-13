@@ -101,22 +101,22 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    flavorDimensions "default"
+    // flavorDimensions "default"
 
-     productFlavors {
-        development {
-            applicationIdSuffix "awesomehoc.development"
-            resValue "string", "build_config_package", "com.awesomehoc"
-        }
-        staging {
-            applicationIdSuffix "awesomehoc.staging"
-            resValue "string", "build_config_package", "com.awesomehoc"
-        }
-        production {
-            applicationIdSuffix "awesomehoc.production"
-            resValue "string", "build_config_package", "com.awesomehoc"
-        }
-    }
+    //  productFlavors {
+    //     development {
+    //         applicationIdSuffix "awesomehoc.development"
+    //         resValue "string", "build_config_package", "com.awesomehoc"
+    //     }
+    //     staging {
+    //         applicationIdSuffix "awesomehoc.staging"
+    //         resValue "string", "build_config_package", "com.awesomehoc"
+    //     }
+    //     production {
+    //         applicationIdSuffix "awesomehoc.production"
+    //         resValue "string", "build_config_package", "com.awesomehoc"
+    //     }
+    // }
 
     namespace "com.awesomehoc"
     defaultConfig {

@@ -7,13 +7,19 @@ import HomeScreen from '../screens/HomeScreen';
 import EquipmentScreen from '../screens/EquipmentScreen';
 import QRCodeScreen from '../screens/QRCodeScreen';
 import SendDataScreen from '../screens/SendDataScreen';
+import MyTabs from './BottomTabs';
 
 const Stack = createNativeStackNavigator();
 
 const NavigationRoute = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="MyTabs">
+        <Stack.Screen
+          name="MyTabs"
+          component={MyTabs}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Equipment" component={EquipmentScreen} />
         <Stack.Screen name="QRCode" component={QRCodeScreen} />
