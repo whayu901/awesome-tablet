@@ -8,7 +8,6 @@ project.ext.envConfigFiles = [
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
-apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -101,22 +100,7 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
-    // flavorDimensions "default"
-
-    //  productFlavors {
-    //     development {
-    //         applicationIdSuffix "awesomehoc.development"
-    //         resValue "string", "build_config_package", "com.awesomehoc"
-    //     }
-    //     staging {
-    //         applicationIdSuffix "awesomehoc.staging"
-    //         resValue "string", "build_config_package", "com.awesomehoc"
-    //     }
-    //     production {
-    //         applicationIdSuffix "awesomehoc.production"
-    //         resValue "string", "build_config_package", "com.awesomehoc"
-    //     }
-    // }
+    
 
     namespace "com.awesomehoc"
     defaultConfig {
