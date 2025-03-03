@@ -2,11 +2,11 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['@react-native-community', 'plugin:prettier/recommended'],
+  extends: ['@react-native', 'plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': 0,
 
-    'eqeqeq': 'warn',
+    eqeqeq: 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-dupe-keys': 'warn',
     'no-lonely-if': 'warn',
@@ -36,6 +36,6 @@ module.exports = {
     'react/no-unused-state': 'error',
     'react/self-closing-comp': 'error',
     'react/state-in-constructor': 'error',
-    'react/static-property-placement': 'error'
+    'react/static-property-placement': 'error',
   },
 };
